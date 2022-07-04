@@ -2,8 +2,25 @@
 const simonTimer = document.getElementById('timer');
 const simonNumbers = document.getElementById('number');
 const simonRandNumber = [];
+const userNumber = [];
 let randNumber = '';
+let points = '0';
 
+//funzioni
+function numberRequest(){
+    for (let i=0; i<5; i++) {
+        userNumber[i] = prompt("inserire un numero");
+        console.log(userNumber[i], userNumber);
+        if (simonRandNumber.includes(userNumber[i])) {
+            points++;
+            console.log(points)
+        }
+    }
+}
+
+function alertPoints () {
+alert("hai indovinato: " + points);
+}
 
 //numeri random
 for (let i=0; i<5; i++){
@@ -30,3 +47,7 @@ const timer = setInterval(() => {
         simonNumbers.classList.add('d-none');
     }
 }, 1000);
+
+setTimeout(numberRequest, 30200);
+
+setTimeout(alertPoints, 30200);
